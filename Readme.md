@@ -1,3 +1,8 @@
+## Clone Github
+```GIT
+Git clone https://github.com/erisamsudin/SimpleApiExpressJS.git
+```
+
 ## Install
 
 This is a [Node.js](https://nodejs.org/en/) module available through the
@@ -39,6 +44,11 @@ const dbServer = mysql.createConnection({
 ## RUNNING APPS
 
 [`NODEMON` command] for Run the Code
+
+
+[`NPM TEST` command] for Run Unit Testing
+
+
 
 ## LIST TEST
 1. Simple Database querying
