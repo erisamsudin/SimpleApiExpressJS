@@ -7,13 +7,13 @@ export const searchdetail = async (req, res) => {
     let movietitle = req.params.movietitle;
     let apikey = "74de599c";
     let timeNow = new Date().toISOString().
-        replace(/T/, ' ').      
+        replace(/T/, ' ').
         replace(/\..+/, '')
     try {
         let url = `http://www.omdbapi.com/?apikey=${apikey}&t=${movietitle}`;
         let settings = { method: "Get" };
         var sql;
-        fetch(url, settings)    
+        fetch(url, settings)
             .then(res => res.json())
             .then((jsonData) => {
                 res.json(jsonData);
@@ -46,4 +46,46 @@ export const searchdetail = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 
+}
+
+
+export const LogicTest = async (req, res) => {
+    
+    let collectAnagrams = (words) => {
+        let anagrams = {}
+        let collectedAnagrams = []
+
+        for (let word of words) {
+            let letters = word.split('').sort().join('')
+            anagrams[letters] = anagrams[letters] || []
+            anagrams[letters].push(word)
+        }
+        for (let key in anagrams) {
+            collectedAnagrams.push(anagrams[key])
+        }
+        return collectedAnagrams
+
+    }
+
+    let words = ['kita', 'atik', 'tika', 'aku', 'kia', 'makan', 'kua'];
+    res.status(200).json({ data: collectAnagrams(words) });
+    return;
+
+}
+
+export const RefactorCode = async (req, res) => {
+    function NewFunction(str) {
+        let findstart = str.indexOf("(");
+        let findend = str.indexOf(")");
+        if (findstart >= 0) {
+            let newString = str.substring(parseInt(findstart,)+parseInt(1), findend)
+            return newString;
+            
+        } else {
+            return '';
+        }
+        
+    }
+    res.status(200).json({ data: NewFunction(req.body.data) });
+    return;
 }

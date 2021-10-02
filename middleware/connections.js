@@ -1,9 +1,9 @@
 import mysql from "mysql";
 
 const dbServer = mysql.createConnection({
-  host     : "nagatech-web.clkz2ekrv9lh.ap-southeast-1.rds.amazonaws.com",
-  user     : "test",
-  password : "indonesia",
+  host     : "localhost",
+  user     : "root",
+  password : "berasputih",
   database : "mit"
 });
 
