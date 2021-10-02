@@ -11,7 +11,21 @@ First Clone This Repo
 Installation is done using the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
-## Connection
+## Connection And Database
+Create Table log_api for Task Number 2 (Simple API)
+```SQL
+CREATE TABLE `log_api` (
+	`apiurl` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`date_request` DATETIME NULL DEFAULT '2008-01-01 01:01:01',
+	`status_request` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci'
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+```
+
+
+
 Set The Connection.js On Middleware Folder, with your MYSQL Account
 ```javascript
 const dbServer = mysql.createConnection({
@@ -57,6 +71,8 @@ with good logic flow
 
 4.  Logic Test Anagram
     - Answer `detail/Refactor` : `http://localhost:3000/detail/Refactor` (POST)
+    
+    The Body
     ```json
     {
         "data" : "([Abdulsdd]))"
