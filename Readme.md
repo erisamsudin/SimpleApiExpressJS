@@ -11,9 +11,9 @@ First Clone This Repo
 Installation is done using the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
-## CONNECTION
+## Connection
 Set The Connection.js On Middleware Folder, with your MYSQL Account
-```ruby
+```javascript
 const dbServer = mysql.createConnection({
   host     : "localhost",
   user     : "theuser",
@@ -28,8 +28,10 @@ const dbServer = mysql.createConnection({
 
 ## LIST TEST
 1. Simple Database querying
-    - Answer : `SELECT a.id,a.username,b.username AS parentusername FROM USER a LEFT JOIN USER b ON a.parent=b.id ORDER BY a.id ASC;`
-
+    - Answer : 
+    ```sql
+    SELECT a.id,a.username,b.username AS parentusername FROM USER a LEFT JOIN USER b ON a.parent=b.id ORDER BY a.id ASC;
+    ```
 2. Please write a small ExpressJS server to search movies from http://www.omdbapi.com/ The Backend should :
     Have 2 endpoint named "/search" with GET method and "/detail" with GET method
     (single movie detail)
@@ -39,7 +41,7 @@ const dbServer = mysql.createConnection({
 with good logic flow
     - Answer `detail/Logic` : `http://localhost:3000/detail/Logic` (POST)
 
-    ```ruby
+    ```javascript
         function NewFunction(str) {
         let findstart = str.indexOf("(");
         let findend = str.indexOf(")");
@@ -55,13 +57,13 @@ with good logic flow
 
 4.  Logic Test Anagram
     - Answer `detail/Refactor` : `http://localhost:3000/detail/Refactor` (POST)
-    `
+    ```json
     {
         "data" : "([Abdulsdd]))"
     }
-    `
+    ```
 
-    ```ruby
+    ```javascript
         let collectAnagrams = (words) => {
         let anagrams = {}
         let collectedAnagrams = []
